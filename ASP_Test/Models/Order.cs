@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-
-public class User
+public class Order
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int OrderId { get; set; }
+
     public int UserId { get; set; }
-    public string Name { get; set; }
+    public virtual User User { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; }
+    public virtual ICollection<OrderProduct> OrderProducts { get; set; }
 }
-
 
